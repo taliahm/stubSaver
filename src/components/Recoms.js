@@ -1,5 +1,9 @@
 import React from 'react';
 import { ajax } from 'jquery';
+import SearchPlaces from './searchPlace.js';
+import Events from './Events.js'; 
+// import findLocation from './services.js';
+
 
 class Recoms extends React.Component {
 	constructor() {
@@ -7,12 +11,8 @@ class Recoms extends React.Component {
 		this.state ={
 			results: [],
 			searchParam: '',
+			eventResults: []
 		}
-	}
-	getSearchParam = (e) => {
-		this.setState({
-			[e.target.name]: e.target.value
-		})
 	}
 	componentDidMount = () => {
 		console.log('get results')
@@ -27,19 +27,50 @@ class Recoms extends React.Component {
 			})
 		})
 	}
+	getEvents = (e) => {
+		e.preventDefault()
+		console.log('get stuff')
+		ajax({
+			url: `https://api.seatgeek.com/2/events?client_id=NzIyNzY4NHwxNDkxMjYwNDAyLjA1&taxonomies.id=${this.state.searchParam}`,
+			method:'GET',
+		}).then((data) => {
+			console.log(data.events)
+			this.setState({
+				eventResults: data.events
+			})
+		})
+
+	}
+	updateState = (e) => {
+		// e.preventDefault();
+		console.log(e.target.value)
+		this.setState({
+				searchParam: e.target.value
+		})
+	}
 	render() {
-		const eventResults = this.state.results.map((item) => {
-			console.log(item)
+		const eventResults = this.state.results.map((item, index) => {
+			let idTag = item.name.toLowerCase()
+			console.log(idTag)
 			return (
-				<option>{item.name}</option>
+				<li key={`${item.name}${index}`}>
+					<label name="eventType" htmlFor={idTag}>
+						<input name="eventType" id={idTag} value={item.id} type="radio" onChange={(e) => this.updateState(e)}/>
+						{item.name}</label>
+				</li>
 				)
 		})
 		return (
 				<div> 
 					<h1> Search for Recommendations</h1> 
-					<select id="events">
-						{eventResults}
-					</select>
+					<div>
+						<SearchPlaces title="Enter a City"/>
+					</div>
+					<div className="scrollList">
+					{eventResults}
+					</div>
+					<input type="submit" value="find events!" onClick={(e) => this.getEvents(e)} />
+					<Events data={this.state.eventResults}/>
 				</div>
 			)
 	}

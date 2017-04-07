@@ -40,6 +40,7 @@ class AddTicket extends React.Component {
 					},
 					xmlToJSON: false
 				}).then(function(response){
+					console.log(response)
 			let suggestions = response.predictions
 			this.setState({
 				googlePredictions: suggestions

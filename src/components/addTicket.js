@@ -8,7 +8,7 @@ class AddTicket extends React.Component {
 		this.findLocation = this.findLocation.bind(this);
 		this.getFile = this.getFile.bind(this);
 		this.submitToFirebase = this.submitToFirebase.bind(this);
-
+		this.sendToFirebase = this.sendToFirebase.bind(this);	
 		this.state = {
 			showName: '',
 			showDate: '',
@@ -78,7 +78,7 @@ class AddTicket extends React.Component {
 				url: this.state.url
 		}
 		const firebase = window.firebase;
-		const dbRef = firebase.database().ref()
+		const dbRef = firebase.database().ref(`users/${this.props.uid}`)
 		dbRef.push(showItem)
 		this.setState ({
 			url: '',

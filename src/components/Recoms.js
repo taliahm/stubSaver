@@ -51,7 +51,7 @@ class Recoms extends React.Component {
 	render() {
 		const eventResults = this.state.results.map((item, index) => {
 			let idTag = item.name.toLowerCase()
-			console.log(idTag)
+			// console.log(idTag)
 			return (
 				<li key={`${item.name}${index}`}>
 					<label name="eventType" htmlFor={idTag}>

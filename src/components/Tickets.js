@@ -19,6 +19,7 @@ class Tickets extends React.Component {
 	const tickets = this.props.items.map((item, index) => {
 		console.log(item)
 		return(<li key={`${item.show}${index}`}>
+			<button onClick={(item) => this.props.editTicket(item)} id={item.name}>Edit Me!</button>
 			<h2>{item.name}</h2>
 			<p>{item.location}</p>
 			<img src={item.url} alt={item.name}/>

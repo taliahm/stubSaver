@@ -3,7 +3,9 @@ import Config from './components/database.js';
 import AddTicket from './components/addTicket.js';
 import Tickets from './components/Tickets.js';
 import { Link } from 'react-router';
+import './normalize.css';
 import './App.css';
+import logo from '../public/ticket.png';
 
   const firebase = window.firebase;
   firebase.initializeApp(Config);
@@ -104,27 +106,35 @@ class App extends Component {
     }
     else {
       toDisplay = 
-      <div> 
-        <form onSubmit={(e) => this.signUp(e)}>
-          <h3> sign up! </h3>
-          <label htmlFor="email">Sign Up Email</label>
-          <input type="email" id="email" name="email" onChange={this.changeEvent}/>
-          <label htmlFor="password">Please create a password</label>
-          <input type="password" id="password" name="password" onChange={this.changeEvent}/>
-          <label htmlFor="confirm">Please confirm Your password</label>
-          <input type="password" id="confirm" name="confirm" onChange={this.changeEvent}/>
-          <button type="submit">Sign Up</button>
-        </form>
-        <h2> Or </h2>
-        <form onSubmit={(e) => this.signIn(e)}>
-        <h3>Sign in!</h3>
-        <label htmlFor="email">Enter Email</label>
-          <input type="email" id="email" name="email" onChange={this.changeEvent}/>
-          <label htmlFor="password">Enter Your Password</label>
-          <input type="password" id="password" name="password" onChange={this.changeEvent}/>
-          <button type="submit">Sign in</button>
-        </form>
-      </div>
+      <section>
+        <div className="topBar">
+          <div className="logoWrap">
+            <img src={logo} alt="ticket icon"/>
+          </div>
+          <h1>Collect My Stubs!</h1>
+        </div>
+        <div className="formContain"> 
+          <form onSubmit={(e) => this.signUp(e)} className="signForm">
+            <h3> sign up </h3>
+            <label className="signForm__label" htmlFor="email">Sign Up Email</label>
+            <input className="signForm__input" type="email" id="email" name="email" onChange={this.changeEvent}/>
+            <label className="signForm__label" htmlFor="password">Please create a password</label>
+            <input className="signForm__input" type="password" id="password" name="password" onChange={this.changeEvent}/>
+            <label className="signForm__label" htmlFor="confirm">Please confirm Your password</label>
+            <input className="signForm__input" type="password" id="confirm" name="confirm" onChange={this.changeEvent}/>
+            <button className="signForm__btn" type="submit">Sign Up</button>
+          </form>
+          <h2> Or </h2>
+          <form onSubmit={(e) => this.signIn(e)} className="signForm">
+          <h3>Sign in</h3>
+          <label className="signForm__label" htmlFor="email">Enter Email</label>
+            <input className="signForm__input" type="email" id="email" name="email" onChange={this.changeEvent}/>
+            <label className="signForm__label" htmlFor="password">Enter Your Password</label>
+            <input className="signForm__input" type="password" id="password" name="password" onChange={this.changeEvent}/>
+            <button className="signForm__btn" type="submit">Sign in</button>
+          </form>
+        </div>
+      </section>
     }
     return (
      <section>{toDisplay}</section>

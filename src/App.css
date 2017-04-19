@@ -1,4 +1,113 @@
+html {
+	font-size: 62.5%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Rubik Mono One', sans-serif;
+	letter-spacing: 1.3px;
+	margin:0;
+}
+
+h1 {
+	font-size: 4rem;
+	/*color: #022F40;*/
+}
+
+h2 {
+	font-size: 3.5rem;
+}
+
+h3 {
+	font-size: 3rem;
+}
+
+
 .scrollList {
   height: 100px;
   overflow-y: scroll;
+}
+
+/*Sign In and Out Page in App Component*/
+.topBar {
+	background: #022F40;
+	color: white;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.topBar h1 {
+	letter-spacing: 4px;
+	margin-left: 20px;
+}
+
+.logoWrap {
+	width: 5%;
+}
+
+.logoWrap img {
+	max-width: 100%;
+}
+
+.formContain {
+	display:flex;
+	margin: 50px auto;
+	justify-content: center;
+	align-items: baseline;
+	max-width: 1200px;
+	width: 70%;
+}
+.signForm {
+	display: flex;
+	flex-direction: column;
+	margin: 0 40px;
+	align-items:center;
+	background: #B5FFE1;
+	padding: 50px;
+	min-height: 450px;
+	min-width: 340px;
+}
+
+.signForm__label {
+	font-size: 1.4rem;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.signForm__input {
+	margin-bottom: 15px;
+	padding: 10px;
+	font-size: 1.4rem;
+	font-family: 'Roboto Mono', monospace;
+	outline: none;
+	border:none;
+	background: none;
+	background: #F8FFFC;
+	transition: all 0.3s ease-out;
+	width: 100%;
+	/*display: block;*/
+}
+.signForm__input:focus {
+	background: #E8ECED;
+}
+
+.signForm__btn {
+	background: none;
+	border:none;
+	outline:none;
+	padding: 10px 20px;
+	background: #F8FFFC;
+	font-size: 1.4rem;
+	font-family: 'Roboto Mono', monospace;
+	transition: all 0.3s ease-out;
+}
+
+.signForm__btn:hover {
+	background: #022F40;
+	color: #F8FFFC;
+}
+
+.signForm h3 {
+	font-family: 'Roboto Mono', monospace;
+	text-transform: uppercase;
+	margin-bottom: 20px;
 }

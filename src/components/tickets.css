@@ -1,0 +1,43 @@
+.tickets {
+	border-top: 1px solid black;
+	margin-top: 40px;
+}
+
+.tickets h2 {
+	margin: 20px 0;
+}
+
+.ticketsContain {
+	display: flex;
+}
+
+.tickets__item {
+	display: flex;
+	/*align-items: baseline;*/
+	background: #022F40;
+	margin: 10px;
+}
+
+.tickets__item h2 {
+	margin: 0;
+	font-family: 'Roboto Mono', monospace;
+}
+.tickets__item .imgContain {
+	width: 50;
+	max-width: 200px;
+	align-self: center;
+}
+
+.tickets__item .imgContain img {
+	max-width: 100%;
+}
+
+.ticketActions {
+	background: white;
+	padding-right: 15px;
+}
+
+.ticketInfo {
+	padding: 0 20px;
+	color: white;
+}

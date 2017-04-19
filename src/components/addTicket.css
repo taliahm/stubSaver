@@ -1,0 +1,43 @@
+.addTicket {
+	font-family:'Roboto Mono', monospace;
+	font-size: 1.4rem;
+}
+
+.addTicket h2 {
+	font-family:'Roboto Mono', monospace;
+	font-size: 2rem;
+	margin-bottom: 20px;
+}
+
+.addTicketForm__section {
+	margin: 10px 0;
+}
+
+.addTicketForm__input {
+	margin-bottom: 15px;
+	padding: 10px;
+	font-size: 1.4rem;
+	font-family: 'Roboto Mono', monospace;
+	outline: none;
+	border:none;
+	background: none;
+	/*background: #F8FFFC;*/
+	border: 1px solid #022F40;
+	transition: all 0.3s ease-out;
+	margin-right: 10px;
+	/*width: 100%;*/
+}
+
+.addTicketForm__input:focus {
+	background: #E8ECED;
+}
+
+.addTicketForm__input--hidden {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+

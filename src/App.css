@@ -111,3 +111,22 @@ h3 {
 	text-transform: uppercase;
 	margin-bottom: 20px;
 }
+
+/*User is now signed in*/
+/*Most of this styling lives in other components*/
+nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+.link {
+	text-decoration: none;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1.6rem;
+	color: #022F40;
+	transition: all 0.3s ease-in;
+}
+
+.link:hover {
+	color: #FE9920;
+}

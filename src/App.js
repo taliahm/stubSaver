@@ -97,9 +97,16 @@ class App extends Component {
     if(this.state.user === true) {
       toDisplay = 
        <header>
-          <h1>Collect My Stubs!</h1>
+          <div className="topBar">
+            <div className="logoWrap">
+              <img src={logo} alt="ticket icon"/>
+            </div>
+            <h1>Collect My Stubs!</h1>
+        </div>
+        <nav>
           <AddTicket uid={this.state.uid}/>
-          <Link to="/reco">Get Recomendations</Link>
+          <Link className="link" to="/reco">Search for Recomendations</Link>
+        </nav>
         <Tickets items={this.state.displayItems} editTicket={(item) => this.editTicket(item)}/>
         <button onClick={this.signOut}>Sign Out </button>
      </header>

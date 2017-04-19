@@ -1,5 +1,7 @@
 import React from 'react';
 import { ajax } from 'jquery';
+import '../normalize.css';
+import './addTicket.css';
 
 class AddTicket extends React.Component {
 	constructor() {
@@ -106,16 +108,28 @@ class AddTicket extends React.Component {
 			return (<option value={item.description} key={item.description}>{item.description}</option>)
 		})
 		return (
-				<div>
-					<p> Add ticket here</p>
+				<div className="addTicket">
+					<h2> Add a Stub!</h2>
 					<form id="addTicketForm" onSubmit={this.submitToFirebase}>
-						<label htmlFor="showName">Name of Show!</label>
-						<input id="showName" name="showName" type="text" value={this.state.showName} onChange={(e) => this.getData(e)}/>
-						<input type="date" name="showDate" onChange={(e) => this.getData(e)} value={this.state.showDate}/>
-						<label htmlFor="showLocation">Location of show</label>
-						<input value={this.state.showLocation} list="places" id="showLocation" type="text" onChange={(e) => this.findLocation(e)}/>
-						<datalist id="places">{places}</datalist>
-						<input type="file" onChange={(e) => this.getFile(e)} capture="camera"/>
+						<div className="addTicketForm__section">
+							<label htmlFor="showName">Name of Event:</label>
+							<input className="addTicketForm__input" id="showName" name="showName" type="text" value={this.state.showName} onChange={(e) => this.getData(e)}/>
+							<label htmlFor="date">Date of Event:</label>
+							<input className="addTicketForm__input" type="date" name="showDate" id="date" onChange={(e) => this.getData(e)} value={this.state.showDate}/>
+						</div>
+						<div className="addTicketForm__section">
+							<label htmlFor="showLocation">Location of event:</label>
+							<input className="addTicketForm__input" value={this.state.showLocation} list="places" id="showLocation" type="text" onChange={(e) => this.findLocation(e)}/>
+							<datalist id="places">{places}</datalist>
+							<label htmlFor="file">Choose File</label>
+							<input 
+								id="file" 
+								className="addTicketForm__input addTicketForm__input--hidden" 
+								type="file" 
+								onChange={(e) => this.getFile(e)} 
+								capture="camera"
+							/>
+						</div>
 						<input type="submit" value="submit"/>
 					</form>
 				</div>
